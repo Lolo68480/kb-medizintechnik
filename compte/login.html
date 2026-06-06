@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace clients — KB Medizintechnik</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      background: linear-gradient(150deg, var(--bg-light) 0%, #fff 50%, var(--primary-bg) 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .auth-wrapper { display: grid; grid-template-columns: 1fr 1fr; max-width: 960px; width: 100%; background: #fff; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); overflow: hidden; }
+    .auth-side {
+      background: linear-gradient(145deg, var(--primary) 0%, var(--dark) 100%);
+      padding: 52px 40px; color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+    }
+    .auth-side::before { content:''; position:absolute; top:-60px; right:-60px; width:240px; height:240px; background:rgba(255,255,255,.06); border-radius:50%; }
+    .auth-side::after { content:''; position:absolute; bottom:-40px; left:-20px; width:180px; height:180px; background:rgba(255,255,255,.04); border-radius:50%; }
+    .auth-side-content { position:relative; z-index:1; }
+    .auth-side h2 { color:#fff; font-size:1.5rem; margin-bottom:14px; }
+    .auth-side p { color:rgba(255,255,255,.8); font-size:.9rem; line-height:1.7; margin-bottom:28px; }
+    .auth-benefits { display:flex; flex-direction:column; gap:14px; }
+    .auth-benefit { display:flex; align-items:flex-start; gap:12px; }
+    .auth-benefit-icon { width:32px; height:32px; background:rgba(255,255,255,.15); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .auth-benefit-icon svg { width:15px; height:15px; }
+    .auth-benefit-text strong { display:block; font-size:.84rem; font-weight:600; margin-bottom:2px; }
+    .auth-benefit-text span { font-size:.75rem; opacity:.8; }
+    .auth-side-footer { position:relative; z-index:1; font-size:.75rem; color:rgba(255,255,255,.5); }
+    .auth-form-side { padding: 52px 44px; display:flex; flex-direction:column; justify-content:center; }
+    .auth-logo { margin-bottom:32px; }
+    .auth-logo img { height:32px; }
+    .auth-tab { display:flex; background:var(--bg-light); border-radius:var(--radius); padding:4px; margin-bottom:28px; gap:4px; }
+    .auth-tab-btn { flex:1; padding:9px; border:none; background:transparent; border-radius:var(--radius-sm); font-size:.84rem; font-weight:500; cursor:pointer; transition:all var(--transition); color:var(--text-muted); font-family:inherit; }
+    .auth-tab-btn.active { background:#fff; color:var(--primary); box-shadow:var(--shadow-sm); font-weight:600; }
+    .auth-separator { display:flex; align-items:center; gap:12px; margin:20px 0; }
+    .auth-separator-line { flex:1; height:1px; background:var(--border); }
+    .auth-separator span { font-size:.75rem; color:var(--text-light); white-space:nowrap; }
+    .forgot-link { font-size:.78rem; color:var(--text-muted); text-align:right; display:block; margin-top:4px; }
+    .forgot-link:hover { color:var(--primary); }
+    @media (max-width:768px) { .auth-wrapper { grid-template-columns:1fr; } .auth-side { display:none; } .auth-form-side { padding:36px 28px; } }
+  </style>
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-wrapper">
+
+    <!-- Colonne gauche — avantages -->
+    <div class="auth-side">
+      <div class="auth-side-content">
+        <a href="../index.html" style="display:inline-block;margin-bottom:32px">
+          <img src="../logo-flag_vectorise-6.svg" alt="KB Medizintechnik" style="height:28px;filter:brightness(0) invert(1);opacity:.85">
+        </a>
+        <h2>Votre espace client</h2>
+        <p>Accédez à votre historique de commandes, suivez vos livraisons, téléchargez vos factures et gérez vos informations professionnelles.</p>
+        <div class="auth-benefits">
+          <div class="auth-benefit">
+            <div class="auth-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            </div>
+            <div class="auth-benefit-text">
+              <strong>Historique de commandes</strong>
+              <span>Retrouvez toutes vos commandes passées et leur statut en temps réel</span>
+            </div>
+          </div>
+          <div class="auth-benefit">
+            <div class="auth-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="auth-benefit-text">
+              <strong>Factures téléchargeables</strong>
+              <span>Accédez à vos factures PDF pour votre comptabilité</span>
+            </div>
+          </div>
+          <div class="auth-benefit">
+            <div class="auth-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="auth-benefit-text">
+              <strong>Suivi de livraison</strong>
+              <span>Suivez vos colis en temps réel directement depuis votre espace</span>
+            </div>
+          </div>
+          <div class="auth-benefit">
+            <div class="auth-benefit-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div class="auth-benefit-text">
+              <strong>Informations professionnelles</strong>
+              <span>Cabinet, adresse de livraison, facturation — tout centralisé</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="auth-side-footer">
+        Vous avez besoin d'aide ? <a href="mailto:info@kbmedshop.ch" style="color:rgba(255,255,255,.6)">info@kbmedshop.ch</a>
+      </div>
+    </div>
+
+    <!-- Colonne droite — formulaire -->
+    <div class="auth-form-side">
+      <div class="auth-logo">
+        <img src="../logo-flag_vectorise-6.svg" alt="KB Medizintechnik" style="display:none" class="logo-mobile">
+      </div>
+
+      <!-- Tabs Connexion / Créer un compte -->
+      <div class="auth-tab">
+        <button class="auth-tab-btn active" data-tab="login">Se connecter</button>
+        <button class="auth-tab-btn" data-tab="register">Créer un compte</button>
+      </div>
+
+      <!-- FORMULAIRE CONNEXION -->
+      <form id="login-form" data-tab-content="login">
+        <div class="form-group">
+          <label class="form-label" for="email">Email professionnel</label>
+          <input type="email" id="email" class="form-input" placeholder="dr.dupont@cabinet-orl.ch" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password" style="display:flex;justify-content:space-between;align-items:center">
+            Mot de passe
+            <a href="reset-password.html" class="forgot-link" style="margin-top:0">Mot de passe oublié ?</a>
+          </label>
+          <div style="position:relative">
+            <input type="password" id="password" class="form-input" placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" id="toggle-pw" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);padding:4px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="form-group" style="flex-direction:row;align-items:center;gap:8px;margin-bottom:24px">
+          <input type="checkbox" id="remember" style="accent-color:var(--primary);width:16px;height:16px;cursor:pointer;flex-shrink:0">
+          <label for="remember" style="font-size:.84rem;color:var(--text-muted);cursor:pointer">Rester connecté pendant 30 jours</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Se connecter
+        </button>
+      </form>
+
+      <!-- FORMULAIRE INSCRIPTION -->
+      <form id="register-form" data-tab-content="register" style="display:none">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="r-prenom">Prénom *</label>
+            <input type="text" id="r-prenom" class="form-input" placeholder="Jean" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="r-nom">Nom *</label>
+            <input type="text" id="r-nom" class="form-input" placeholder="Dupont" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-titre">Titre / Spécialité</label>
+          <select id="r-titre" class="form-select">
+            <option value="">Sélectionnez...</option>
+            <option>Dr. — ORL</option>
+            <option>Dr. — Généraliste</option>
+            <option>Audiologiste</option>
+            <option>Responsable achats</option>
+            <option>Cadre hospitalier</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-cabinet">Cabinet / Établissement *</label>
+          <input type="text" id="r-cabinet" class="form-input" placeholder="Cabinet ORL Genève" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-email">Email professionnel *</label>
+          <input type="email" id="r-email" class="form-input" placeholder="dr.dupont@cabinet-orl.ch" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-password">Mot de passe *</label>
+          <input type="password" id="r-password" class="form-input" placeholder="8 caractères minimum" required minlength="8">
+          <span class="form-hint">Au moins 8 caractères, incluant une majuscule et un chiffre</span>
+        </div>
+        <div class="form-group" style="margin-bottom:20px">
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="r-cgv" required>
+            <label for="r-cgv" style="font-size:.8rem">J'accepte les <a href="../cgv.html" style="color:var(--primary)">Conditions Générales de Vente</a> et la <a href="../confidentialite.html" style="color:var(--primary)">Politique de confidentialité</a>. *</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          Créer mon compte
+        </button>
+      </form>
+
+      <div class="auth-separator">
+        <div class="auth-separator-line"></div>
+        <span>ou</span>
+        <div class="auth-separator-line"></div>
+      </div>
+
+      <div style="text-align:center">
+        <a href="../index.html" style="font-size:.84rem;color:var(--text-muted);display:inline-flex;align-items:center;gap:6px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Retour au site
+        </a>
+        <span style="color:var(--border);margin:0 12px">·</span>
+        <a href="../contact.html" style="font-size:.84rem;color:var(--text-muted)">Besoin d'aide ?</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+  // Tabs
+  document.querySelectorAll('.auth-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.auth-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('[data-tab-content]').forEach(f => {
+        f.style.display = f.dataset.tabContent === tab ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Toggle mot de passe
+  document.getElementById('toggle-pw')?.addEventListener('click', () => {
+    const input = document.getElementById('password');
+    input.type = input.type === 'password' ? 'text' : 'password';
+  });
+
+  // Login → redirige vers historique
+  document.getElementById('login-form')?.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('[type="submit"]');
+    btn.textContent = 'Connexion…'; btn.disabled = true;
+    setTimeout(() => window.location.href = 'historique.html', 900);
+  });
+
+  // Register
+  document.getElementById('register-form')?.addEventListener('submit', e => {
+    e.preventDefault();
+    window.showToast?.('Compte créé ! Vérifiez vos emails pour confirmer.', 'success');
+    setTimeout(() => window.location.href = 'historique.html', 1800);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions Générales de Vente — KB Medizintechnik</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 56px 0 80px; align-items: start; }
+    .legal-nav { position: sticky; top: 84px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; }
+    .legal-nav-title { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--text-muted); margin-bottom: 10px; padding: 0 8px; }
+    .legal-nav a { display: block; padding: 7px 10px; border-radius: var(--radius-sm); font-size: .84rem; color: var(--text-muted); transition: all var(--transition); }
+    .legal-nav a:hover { background: var(--primary-bg); color: var(--primary); }
+    .legal-content { max-width: 760px; }
+    .legal-section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .legal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .legal-section h2 { font-size: 1.25rem; margin-bottom: 18px; padding-top: 8px; }
+    .legal-section h3 { font-size: .95rem; font-weight: 600; margin: 18px 0 8px; color: var(--text); }
+    .legal-section p { font-size: .9rem; line-height: 1.8; margin-bottom: 12px; }
+    .legal-section ul { padding-left: 20px; margin-bottom: 12px; }
+    .legal-section ul li { font-size: .9rem; line-height: 1.7; margin-bottom: 6px; color: var(--text-muted); }
+    .legal-placeholder { background: var(--bg-light); border: 1.5px dashed var(--border); border-radius: var(--radius); padding: 12px 16px; font-size: .84rem; color: var(--text-muted); font-style: italic; margin: 10px 0; }
+    .legal-placeholder strong { color: var(--warning); font-style: normal; }
+    .info-box { background: var(--primary-bg); border-left: 3px solid var(--primary); border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0; font-size: .875rem; }
+    @media (max-width: 768px) { .legal-layout { grid-template-columns: 1fr; } .legal-nav { position: static; } }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo"><img src="logo-flag_vectorise-6.svg" alt="KB Medizintechnik"></a>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="boutique.html" class="nav-link">Catalogue</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger">Spécialités <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="nav-dropdown-menu">
+            <a href="specialites/orl.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3"/></svg>ORL</a>
+            <a href="specialites/gynecologie.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Gynécologie</a>
+            <a href="specialites/sterilisation.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Stérilisation</a>
+            <a href="specialites/hopital-ems.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Hôpital &amp; EMS</a>
+          </div>
+        </div>
+        <a href="entreprise.html" class="nav-link">L'entreprise</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-spacer"></div>
+      <div class="header-actions">
+        <div class="lang-switcher"><a href="#" class="active">FR</a><span class="lang-sep">|</span><a href="#">DE</a><span class="lang-sep">|</span><a href="#">IT</a><span class="lang-sep">|</span><a href="#">EN</a></div>
+        <a href="boutique.html" class="btn btn-primary btn-sm">Commander</a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>CGV</span></div>
+    <h1>Conditions Générales de Vente</h1>
+    <p>Applicables à toutes les commandes passées sur kbmedshop.ch — Version en vigueur depuis juin 2026</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="legal-layout">
+
+    <nav class="legal-nav">
+      <div class="legal-nav-title">Sommaire</div>
+      <a href="#champ">Champ d'application</a>
+      <a href="#commande">Commandes</a>
+      <a href="#prix">Prix et TVA</a>
+      <a href="#paiement">Paiement</a>
+      <a href="#livraison">Livraison</a>
+      <a href="#retour">Retours et remboursements</a>
+      <a href="#garantie">Garanties</a>
+      <a href="#responsabilite-cgv">Responsabilité</a>
+      <a href="#droit-cgv">Droit applicable</a>
+    </nav>
+
+    <div class="legal-content">
+
+      <div class="info-box">
+        <strong>Site réservé aux professionnels de santé.</strong> kbmedshop.ch est une plateforme B2B. Les présentes CGV s'appliquent exclusivement aux achats effectués par des professionnels de santé (médecins, établissements de soins, services d'achat hospitaliers). Elles ne s'appliquent pas aux consommateurs finaux.
+      </div>
+
+      <div class="legal-section" id="champ">
+        <h2>1. Champ d'application</h2>
+        <p>Les présentes Conditions Générales de Vente (CGV) régissent l'ensemble des ventes de produits conclues entre <strong>KB Medizintechnik GmbH</strong> (ci-après "KB Medizintechnik" ou "nous") et tout acheteur professionnel (ci-après "le Client") via le site kbmedshop.ch.</p>
+        <p>En passant commande sur notre site, le Client accepte sans réserve les présentes CGV. Toute condition contraire posée par le Client est inopposable à KB Medizintechnik, sauf accord écrit préalable.</p>
+        <p>KB Medizintechnik se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de la commande.</p>
+      </div>
+
+      <div class="legal-section" id="commande">
+        <h2>2. Passation et confirmation de commande</h2>
+        <h3>2.1 Commande directe (consommables)</h3>
+        <p>Le Client sélectionne les produits dans le catalogue, les ajoute au panier et procède au paiement en ligne. La commande est confirmée à réception du paiement. Un email de confirmation est envoyé automatiquement.</p>
+        <h3>2.2 Commande sur devis (équipements)</h3>
+        <p>Pour les équipements et matériels importants, le Client soumet une demande de devis. KB Medizintechnik établit un devis personnalisé sous 4h ouvrées. La commande est ferme à réception de l'acceptation écrite du devis par le Client.</p>
+        <h3>2.3 Disponibilité des produits</h3>
+        <p>Les informations de stock affichées sur le site sont indicatives et mises à jour en temps réel. En cas de rupture de stock survenant après la commande, KB Medizintechnik contacte le Client dans les plus brefs délais pour proposer un délai de livraison ou un remboursement.</p>
+        <p>KB Medizintechnik se réserve le droit de refuser ou annuler toute commande pour des motifs légitimes (rupture de stock définitive, erreur manifeste de prix, suspicion de fraude).</p>
+      </div>
+
+      <div class="legal-section" id="prix">
+        <h2>3. Prix et TVA</h2>
+        <p>Tous les prix affichés sur kbmedshop.ch sont en <strong>CHF (francs suisses), hors TVA</strong>, sauf mention contraire explicite.</p>
+        <p>Le taux de TVA applicable est celui en vigueur en Suisse au moment de la commande.</p>
+        <div class="legal-placeholder"><strong>À compléter :</strong> Préciser le taux TVA applicable (actuellement 8.1% taux normal / 2.6% taux réduit pour certains dispositifs médicaux) et si le Client peut bénéficier d'une exonération TVA selon son statut.</div>
+        <p>KB Medizintechnik se réserve le droit de modifier ses tarifs à tout moment. Les prix applicables sont ceux affichés au moment de la validation de la commande.</p>
+        <p>Des tarifs dégressifs peuvent être négociés pour les commandes en volume ou les contrats annuels. Contactez notre équipe commerciale.</p>
+      </div>
+
+      <div class="legal-section" id="paiement">
+        <h2>4. Conditions de paiement</h2>
+        <h3>4.1 Moyens de paiement acceptés</h3>
+        <ul>
+          <li><strong>Carte bancaire</strong> (Visa, Mastercard) — via notre prestataire sécurisé</li>
+          <li><strong>TWINT</strong> — pour les commandes directes en ligne</li>
+          <li><strong>Virement bancaire</strong> — sur présentation de la facture, délai 30 jours</li>
+        </ul>
+        <div class="legal-placeholder"><strong>À compléter :</strong> Coordonnées bancaires pour le virement (IBAN, BIC/SWIFT, banque)</div>
+        <h3>4.2 Délais de paiement</h3>
+        <p>Les paiements par carte et TWINT sont exigibles immédiatement. Pour les virements, le délai de paiement est de <strong>30 jours nets</strong> à compter de la date de facture, sauf accord écrit différent.</p>
+        <h3>4.3 Retard de paiement</h3>
+        <p>Tout retard de paiement entraîne de plein droit, sans mise en demeure préalable, des intérêts de retard au taux légal suisse (5% par an) ainsi que le remboursement des frais de recouvrement engagés.</p>
+      </div>
+
+      <div class="legal-section" id="livraison">
+        <h2>5. Livraison</h2>
+        <h3>5.1 Zone et délais</h3>
+        <ul>
+          <li><strong>Suisse :</strong> 24 à 48h ouvrées pour les produits en stock (commande avant 15h = expédition le jour même)</li>
+          <li><strong>Frontaliers (France, Allemagne, Autriche, Italie) :</strong> 48 à 72h ouvrées</li>
+        </ul>
+        <h3>5.2 Frais de port</h3>
+        <div class="legal-placeholder"><strong>À compléter :</strong> Tarifs de livraison selon le montant de la commande, les zones géographiques, et les transporteurs utilisés. Ex : "Livraison offerte en Suisse dès 150 CHF HT".</div>
+        <h3>5.3 Transfert de risques</h3>
+        <p>Le transfert de propriété et des risques intervient à la livraison des produits au Client (ou à son transporteur mandaté). En cas de dommage constaté à la réception, le Client doit formuler des réserves précises auprès du transporteur et nous en informer sous 48h.</p>
+        <h3>5.4 Livraison non conforme</h3>
+        <p>En cas de produit manquant, endommagé ou non conforme à la commande, le Client doit signaler le problème à <a href="mailto:commandes@kbmedshop.ch" style="color:var(--primary)">commandes@kbmedshop.ch</a> dans les 5 jours ouvrés suivant la livraison, avec photos à l'appui.</p>
+      </div>
+
+      <div class="legal-section" id="retour">
+        <h2>6. Retours, échanges et remboursements</h2>
+        <h3>6.1 Produits retournables</h3>
+        <p>Tout retour doit être préalablement autorisé par KB Medizintechnik (demande à adresser à <a href="mailto:commandes@kbmedshop.ch" style="color:var(--primary)">commandes@kbmedshop.ch</a>). Les produits retournés doivent être dans leur emballage d'origine, non ouverts et non utilisés.</p>
+        <h3>6.2 Produits non retournables</h3>
+        <ul>
+          <li>Consommables médicaux ouverts ou utilisés</li>
+          <li>Produits réalisés sur mesure ou commandés spécialement</li>
+          <li>Produits dont l'emballage stérile a été brisé</li>
+        </ul>
+        <h3>6.3 Délai de retour</h3>
+        <p>Toute demande de retour doit être formulée dans les <strong>14 jours</strong> suivant la livraison. Les frais de retour sont à la charge du Client, sauf défaut constaté ou erreur de notre part.</p>
+        <h3>6.4 Remboursement</h3>
+        <p>Le remboursement est effectué dans les 14 jours suivant la réception et le contrôle du retour, par le même moyen de paiement que l'achat initial.</p>
+      </div>
+
+      <div class="legal-section" id="garantie">
+        <h2>7. Garanties</h2>
+        <p>Tous les produits vendus par KB Medizintechnik bénéficient de la garantie légale contre les défauts de conformité conformément au Code des obligations suisse.</p>
+        <p>La garantie constructeur varie selon les produits (généralement 1 à 3 ans). Elle est indiquée sur chaque fiche produit. La garantie couvre les défauts de fabrication dans des conditions normales d'utilisation. Elle ne couvre pas l'usure normale, les dommages liés à une mauvaise utilisation ou à un entretien inadapté.</p>
+        <p>Pour toute demande SAV sous garantie, contactez <a href="mailto:sav@kbmedshop.ch" style="color:var(--primary)">sav@kbmedshop.ch</a>.</p>
+      </div>
+
+      <div class="legal-section" id="responsabilite-cgv">
+        <h2>8. Limitation de responsabilité</h2>
+        <p>KB Medizintechnik ne saurait être tenu responsable des dommages indirects (manque à gagner, perte de chance, perturbation d'activité) résultant de l'utilisation ou de la défaillance d'un produit.</p>
+        <p>La responsabilité totale de KB Medizintechnik, quelle qu'en soit la cause, est limitée au montant de la commande concernée.</p>
+        <p>Les produits distribués par KB Medizintechnik sont destinés à être utilisés par des professionnels de santé qualifiés. Toute utilisation non conforme à l'usage prévu ou aux instructions du fabricant dégage KB Medizintechnik de toute responsabilité.</p>
+      </div>
+
+      <div class="legal-section" id="droit-cgv">
+        <h2>9. Droit applicable et litiges</h2>
+        <p>Les présentes CGV sont soumises au <strong>droit suisse</strong>, à l'exclusion de tout autre droit. Les dispositions de la Convention de Vienne sur les contrats de vente internationale de marchandises (CVIM) sont expressément exclues.</p>
+        <p>En cas de litige, les parties s'engagent à rechercher une solution amiable dans un premier temps. À défaut, le litige sera soumis à la compétence exclusive des tribunaux du canton de <span class="legal-placeholder" style="display:inline;padding:2px 8px"><strong>À compléter :</strong> Canton</span>.</p>
+        <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+          <a href="mentions-legales.html" class="btn btn-outline btn-sm">Mentions légales</a>
+          <a href="confidentialite.html" class="btn btn-outline btn-sm">Confidentialité</a>
+          <a href="contact.html" class="btn btn-ghost btn-sm">Nous contacter</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px">
+      <div class="footer-swiss"><div class="footer-swiss-flag"></div>Entreprise suisse — kbmedshop.ch</div>
+      <div style="display:flex;gap:16px;font-size:.78rem">
+        <a href="mentions-legales.html" style="color:rgba(255,255,255,.5)">Mentions légales</a>
+        <a href="confidentialite.html" style="color:rgba(255,255,255,.5)">Confidentialité</a>
+        <a href="cgv.html" style="color:rgba(255,255,255,.5)">CGV</a>
+      </div>
+      <div style="color:rgba(255,255,255,.35)">© 2026 KB Medizintechnik</div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

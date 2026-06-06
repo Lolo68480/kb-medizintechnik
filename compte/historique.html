@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon espace client — KB Medizintechnik</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .account-layout { display: grid; grid-template-columns: 260px 1fr; gap: 28px; padding: 40px 0 72px; align-items: start; }
+    .account-sidebar { position: sticky; top: 84px; }
+    .account-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+    .account-profile { padding:24px; text-align:center; border-bottom:1px solid var(--border); }
+    .account-avatar { width:64px; height:64px; background:linear-gradient(135deg,var(--primary),var(--dark)); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.4rem; font-weight:700; margin:0 auto 12px; }
+    .account-name { font-weight:700; font-size:.95rem; margin-bottom:2px; }
+    .account-role { font-size:.75rem; color:var(--text-muted); }
+    .account-nav { padding:8px; }
+    .account-nav-link { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:var(--radius-sm); font-size:.875rem; font-weight:500; color:var(--text-muted); transition:all var(--transition); cursor:pointer; margin-bottom:2px; text-decoration:none; }
+    .account-nav-link:hover { background:var(--bg-light); color:var(--text); }
+    .account-nav-link.active { background:var(--primary-bg); color:var(--primary); }
+    .account-nav-link svg { width:16px; height:16px; flex-shrink:0; }
+    .account-nav-sep { height:1px; background:var(--border); margin:8px 0; }
+    .account-nav-link.danger { color:var(--error); }
+    .account-nav-link.danger:hover { background:#FEE2E2; color:var(--error); }
+
+    .order-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); margin-bottom:16px; overflow:hidden; transition:box-shadow var(--transition); }
+    .order-card:hover { box-shadow:var(--shadow); }
+    .order-header { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid var(--border); gap:12px; flex-wrap:wrap; }
+    .order-number { font-weight:700; font-size:.9rem; }
+    .order-date { font-size:.78rem; color:var(--text-muted); margin-top:2px; }
+    .order-meta { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    .order-amount { font-weight:700; font-size:1rem; color:var(--text); }
+    .order-actions { display:flex; gap:8px; }
+    .order-body { padding:16px 22px; }
+    .order-items { display:flex; flex-direction:column; gap:10px; }
+    .order-item { display:flex; align-items:center; gap:12px; }
+    .order-item-img { width:44px; height:44px; background:var(--bg-light); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .order-item-img svg { width:20px; height:20px; color:var(--border); }
+    .order-item-info { flex:1; min-width:0; }
+    .order-item-info strong { font-size:.84rem; font-weight:600; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .order-item-info span { font-size:.75rem; color:var(--text-muted); }
+    .order-item-qty { font-size:.78rem; color:var(--text-muted); background:var(--bg-light); padding:2px 8px; border-radius:20px; white-space:nowrap; }
+    .order-item-price { font-size:.875rem; font-weight:600; white-space:nowrap; }
+    .order-footer { padding:12px 22px; background:var(--bg-light); border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; font-size:.78rem; color:var(--text-muted); }
+    .tracking-bar { display:flex; align-items:center; gap:0; margin-top:16px; }
+    .tracking-step { flex:1; display:flex; flex-direction:column; align-items:center; position:relative; }
+    .tracking-dot { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:1; }
+    .tracking-dot.done { background:var(--primary); }
+    .tracking-dot.active { background:var(--primary); box-shadow:0 0 0 4px var(--primary-bg); }
+    .tracking-dot.pending { background:var(--border); }
+    .tracking-dot svg { width:12px; height:12px; color:#fff; }
+    .tracking-line { position:absolute; top:12px; left:50%; right:-50%; height:2px; }
+    .tracking-line.done { background:var(--primary); }
+    .tracking-line.pending { background:var(--border); }
+    .tracking-label { font-size:.7rem; margin-top:6px; color:var(--text-muted); text-align:center; }
+    .tracking-label.done { color:var(--primary); font-weight:500; }
+    .tracking-step:last-child .tracking-line { display:none; }
+
+    .info-section { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px; margin-bottom:20px; }
+    .info-section h3 { font-size:.95rem; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+    .info-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--bg-light); }
+    .info-row:last-child { border-bottom:none; }
+    .info-label { font-size:.8rem; color:var(--text-muted); }
+    .info-value { font-size:.875rem; font-weight:500; }
+
+    @media (max-width:900px) { .account-layout { grid-template-columns:1fr; } .account-sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="../index.html" class="header-logo"><img src="../logo-flag_vectorise-6.svg" alt="KB Medizintechnik"></a>
+      <nav class="header-nav">
+        <a href="../index.html" class="nav-link">Accueil</a>
+        <a href="../boutique.html" class="nav-link">Catalogue</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger">Spécialités <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="nav-dropdown-menu">
+            <a href="../specialites/orl.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3"/></svg>ORL</a>
+            <a href="../specialites/gynecologie.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Gynécologie</a>
+            <a href="../specialites/sterilisation.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Stérilisation</a>
+            <a href="../specialites/hopital-ems.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Hôpital &amp; EMS</a>
+          </div>
+        </div>
+        <a href="../entreprise.html" class="nav-link">L'entreprise</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-spacer"></div>
+      <div class="header-actions">
+        <div class="lang-switcher"><a href="#" class="active">FR</a><span class="lang-sep">|</span><a href="#">DE</a><span class="lang-sep">|</span><a href="#">IT</a><span class="lang-sep">|</span><a href="#">EN</a></div>
+        <a href="../boutique.html" class="btn btn-ghost btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Commander
+        </a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero" style="padding:32px 0">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>Mon espace client</span></div>
+    <h1 style="font-size:1.75rem;margin-bottom:4px">Mon espace client</h1>
+    <p>Bonjour Dr. Favre — bienvenue dans votre espace personnel</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="account-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="account-sidebar">
+      <div class="account-card">
+        <div class="account-profile">
+          <div class="account-avatar">RF</div>
+          <div class="account-name">Dr. Renaud Favre</div>
+          <div class="account-role">ORL — Cabinet privé, Genève</div>
+          <div style="margin-top:10px">
+            <span class="badge badge-blue">Client depuis 2022</span>
+          </div>
+        </div>
+        <nav class="account-nav">
+          <a href="#commandes" class="account-nav-link active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            Mes commandes
+          </a>
+          <a href="#devis" class="account-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Mes devis
+          </a>
+          <a href="#factures" class="account-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+            Mes factures
+          </a>
+          <a href="#infos" class="account-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Mes informations
+          </a>
+          <a href="#adresses" class="account-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Adresses de livraison
+          </a>
+          <div class="account-nav-sep"></div>
+          <a href="../contact.html" class="account-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Contacter le SAV
+          </a>
+          <a href="login.html" class="account-nav-link danger">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Déconnexion
+          </a>
+        </nav>
+      </div>
+
+      <!-- Récap rapide -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--primary)">7</div>
+          <div style="font-size:.72rem;color:var(--text-muted)">Commandes</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--primary)">3 248</div>
+          <div style="font-size:.72rem;color:var(--text-muted)">CHF total</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENU PRINCIPAL -->
+    <div>
+
+      <!-- MES COMMANDES -->
+      <div id="commandes">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <h2 style="font-size:1.1rem">Mes commandes</h2>
+          <a href="../boutique.html" class="btn btn-primary btn-sm">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nouvelle commande
+          </a>
+        </div>
+
+        <!-- Commande 1 — Expédiée -->
+        <div class="order-card">
+          <div class="order-header">
+            <div>
+              <div class="order-number">#2026-1842</div>
+              <div class="order-date">Passée le 6 juin 2026</div>
+            </div>
+            <div class="order-meta">
+              <span class="status-badge status-shipped">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                Expédiée
+              </span>
+              <span class="order-amount">1 247 CHF HT</span>
+            </div>
+            <div class="order-actions">
+              <button class="btn btn-ghost btn-sm">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Suivre
+              </button>
+              <button class="btn btn-ghost btn-sm">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Facture
+              </button>
+            </div>
+          </div>
+          <div class="order-body">
+            <div class="order-items">
+              <div class="order-item">
+                <div class="order-item-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3"/></svg></div>
+                <div class="order-item-info">
+                  <strong>Otoscope LED K180 Pro — HEINE</strong>
+                  <span>Réf. ORL-OS-2400-K180</span>
+                </div>
+                <div class="order-item-qty">×2</div>
+                <div class="order-item-price">578 CHF</div>
+              </div>
+              <div class="order-item">
+                <div class="order-item-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8"/></svg></div>
+                <div class="order-item-info">
+                  <strong>Spéculums auriculaires jetables ×100</strong>
+                  <span>Réf. CONS-SP-4MM-100</span>
+                </div>
+                <div class="order-item-qty">×5</div>
+                <div class="order-item-price">74.50 CHF</div>
+              </div>
+              <div class="order-item">
+                <div class="order-item-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="8" width="18" height="12" rx="2"/></svg></div>
+                <div class="order-item-info">
+                  <strong>Poignée HEINE Beta 4 USB</strong>
+                  <span>Réf. ORL-PG-BETA4-USB</span>
+                </div>
+                <div class="order-item-qty">×1</div>
+                <div class="order-item-price">189 CHF</div>
+              </div>
+            </div>
+            <!-- Barre de suivi -->
+            <div class="tracking-bar" style="margin-top:20px">
+              <div class="tracking-step">
+                <div class="tracking-line done"></div>
+                <div class="tracking-dot done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                <div class="tracking-label done">Confirmée</div>
+              </div>
+              <div class="tracking-step">
+                <div class="tracking-line done"></div>
+                <div class="tracking-dot done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                <div class="tracking-label done">Préparée</div>
+              </div>
+              <div class="tracking-step">
+                <div class="tracking-line done"></div>
+                <div class="tracking-dot active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/></svg></div>
+                <div class="tracking-label done">Expédiée</div>
+              </div>
+              <div class="tracking-step">
+                <div class="tracking-dot pending"></div>
+                <div class="tracking-label">Livrée</div>
+              </div>
+            </div>
+          </div>
+          <div class="order-footer">
+            <span>Swiss Post Priority — N° de suivi : <a href="#" style="color:var(--primary);font-weight:500">SH123456789CH</a></span>
+            <span>Livraison prévue : <strong style="color:var(--text)">Lundi 8 juin 2026</strong></span>
+          </div>
+        </div>
+
+        <!-- Commande 2 — Livrée -->
+        <div class="order-card">
+          <div class="order-header">
+            <div>
+              <div class="order-number">#2026-1798</div>
+              <div class="order-date">Passée le 22 mai 2026</div>
+            </div>
+            <div class="order-meta">
+              <span class="status-badge status-delivered">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                Livrée
+              </span>
+              <span class="order-amount">312 CHF HT</span>
+            </div>
+            <div class="order-actions">
+              <button class="btn btn-ghost btn-sm">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Facture
+              </button>
+              <button class="btn btn-ghost btn-sm">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+                Recommander
+              </button>
+            </div>
+          </div>
+          <div class="order-body">
+            <div class="order-items">
+              <div class="order-item">
+                <div class="order-item-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div class="order-item-info">
+                  <strong>Désinfectant instruments 5L — Aniosyme</strong>
+                  <span>Réf. HYG-DI-ANY-5L</span>
+                </div>
+                <div class="order-item-qty">×3</div>
+                <div class="order-item-price">126 CHF</div>
+              </div>
+              <div class="order-item">
+                <div class="order-item-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
+                <div class="order-item-info">
+                  <strong>Gants nitrile non poudrés M ×100</strong>
+                  <span>Réf. HYG-GN-NIT-M100</span>
+                </div>
+                <div class="order-item-qty">×10</div>
+                <div class="order-item-price">85 CHF</div>
+              </div>
+            </div>
+          </div>
+          <div class="order-footer">
+            <span>Livrée le 24 mai 2026</span>
+            <span style="color:var(--success);font-weight:500">✓ Réception confirmée</span>
+          </div>
+        </div>
+
+        <!-- Commande 3 — En attente paiement -->
+        <div class="order-card">
+          <div class="order-header">
+            <div>
+              <div class="order-number">#2026-1741</div>
+              <div class="order-date">Passée le 4 mai 2026</div>
+            </div>
+            <div class="order-meta">
+              <span class="status-badge status-pending">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                En attente virement
+              </span>
+              <span class="order-amount">1 689 CHF HT</span>
+            </div>
+            <div class="order-actions">
+              <a href="#" class="btn btn-primary btn-sm">Voir facture</a>
+            </div>
+          </div>
+          <div class="order-footer">
+            <span style="color:var(--warning)">⚠ Virement attendu — IBAN communiqué par email</span>
+            <span>Échéance : 20 juin 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MES DEVIS -->
+      <div id="devis" style="margin-top:40px">
+        <h2 style="font-size:1.1rem;margin-bottom:16px">Mes demandes de devis</h2>
+        <div class="account-card">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Référence</th>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Produits</th>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Date</th>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Statut</th>
+                <th style="padding:12px 18px;background:var(--bg-light);border-bottom:1px solid var(--border)"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-weight:600;font-size:.84rem">DEV-2026-047</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--text-muted)">Audiomètre AD629, Tympanomètre AT235</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--text-muted)">3 juin 2026</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border)"><span class="status-badge status-processed">Devis envoyé</span></td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border)"><button class="btn btn-ghost btn-xs">Voir</button></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 18px;font-weight:600;font-size:.84rem">DEV-2026-031</td>
+                <td style="padding:14px 18px;font-size:.84rem;color:var(--text-muted)">Nasofibroscope KS350, Set endoscopie</td>
+                <td style="padding:14px 18px;font-size:.84rem;color:var(--text-muted)">14 avril 2026</td>
+                <td style="padding:14px 18px"><span class="status-badge status-converted">Converti en commande</span></td>
+                <td style="padding:14px 18px"><button class="btn btn-ghost btn-xs">Voir</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MES FACTURES -->
+      <div id="factures" style="margin-top:40px">
+        <h2 style="font-size:1.1rem;margin-bottom:16px">Mes factures</h2>
+        <div class="account-card">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">N° Facture</th>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Date</th>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Montant HT</th>
+                <th style="padding:12px 18px;text-align:left;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-light);border-bottom:1px solid var(--border)">Statut</th>
+                <th style="padding:12px 18px;background:var(--bg-light);border-bottom:1px solid var(--border)"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-weight:600;font-size:.84rem">FAC-2026-1842</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--text-muted)">6 juin 2026</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-weight:600">1 247.00 CHF</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border)"><span class="badge badge-orange">En attente</span></td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border)">
+                  <button class="btn btn-ghost btn-xs">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    PDF
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-weight:600;font-size:.84rem">FAC-2026-1798</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--text-muted)">22 mai 2026</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border);font-weight:600">312.00 CHF</td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border)"><span class="badge badge-green">Payée</span></td>
+                <td style="padding:14px 18px;border-bottom:1px solid var(--border)">
+                  <button class="btn btn-ghost btn-xs">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    PDF
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MES INFORMATIONS -->
+      <div id="infos" style="margin-top:40px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <h2 style="font-size:1.1rem">Mes informations</h2>
+          <button class="btn btn-ghost btn-sm">Modifier</button>
+        </div>
+        <div class="info-section">
+          <h3>Identité professionnelle</h3>
+          <div class="info-row"><span class="info-label">Nom complet</span><span class="info-value">Dr. Renaud Favre</span></div>
+          <div class="info-row"><span class="info-label">Spécialité</span><span class="info-value">Oto-Rhino-Laryngologie</span></div>
+          <div class="info-row"><span class="info-label">Établissement</span><span class="info-value">Cabinet ORL Favre</span></div>
+          <div class="info-row"><span class="info-label">Email</span><span class="info-value">r.favre@cabinet-orl-ge.ch</span></div>
+          <div class="info-row"><span class="info-label">Téléphone</span><span class="info-value">+41 22 XXX XX XX</span></div>
+        </div>
+        <div class="info-section" id="adresses">
+          <h3>Adresse de livraison principale</h3>
+          <div class="info-row"><span class="info-label">Adresse</span><span class="info-value">13, Rue du Rhône</span></div>
+          <div class="info-row"><span class="info-label">NPA / Ville</span><span class="info-value">1204 Genève</span></div>
+          <div class="info-row"><span class="info-label">Canton</span><span class="info-value">Genève (GE)</span></div>
+          <div class="info-row"><span class="info-label">Pays</span><span class="info-value">🇨🇭 Suisse</span></div>
+          <div style="margin-top:14px">
+            <button class="btn btn-ghost btn-sm">+ Ajouter une adresse</button>
+          </div>
+        </div>
+        <div class="info-section">
+          <h3>Préférences de notification</h3>
+          <div class="info-row">
+            <span class="info-label">Confirmation de commande</span>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" checked style="accent-color:var(--primary)">
+              <span class="info-value" style="font-size:.84rem">Email activé</span>
+            </label>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Avis de livraison</span>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" checked style="accent-color:var(--primary)">
+              <span class="info-value" style="font-size:.84rem">Email activé</span>
+            </label>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Newsletter &amp; offres</span>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" style="accent-color:var(--primary)">
+              <span class="info-value" style="font-size:.84rem">Désactivé</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px">
+      <div class="footer-swiss"><div class="footer-swiss-flag"></div>Entreprise suisse — kbmedshop.ch</div>
+      <div style="display:flex;gap:16px;font-size:.78rem">
+        <a href="../mentions-legales.html" style="color:rgba(255,255,255,.5)">Mentions légales</a>
+        <a href="../confidentialite.html" style="color:rgba(255,255,255,.5)">Confidentialité</a>
+        <a href="../cgv.html" style="color:rgba(255,255,255,.5)">CGV</a>
+      </div>
+      <div style="color:rgba(255,255,255,.35)">© 2026 KB Medizintechnik</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Navigation sidebar active
+  document.querySelectorAll('.account-nav-link[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      document.querySelectorAll('.account-nav-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
