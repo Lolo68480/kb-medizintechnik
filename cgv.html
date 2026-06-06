@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -32,10 +32,10 @@
     <div class="header-inner">
       <a href="index.html" class="header-logo"><img src="logo-flag_vectorise-6.svg" alt="KB Medizintechnik"></a>
       <nav class="header-nav">
-        <a href="index.html" class="nav-link">Accueil</a>
-        <a href="boutique.html" class="nav-link">Catalogue</a>
+        <a href="index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
+        <a href="boutique.html" class="nav-link" data-i18n="nav.catalog">Catalogue</a>
         <div class="nav-dropdown">
-          <button class="nav-link nav-dropdown-trigger">Spécialités <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></button>
+          <button class="nav-link nav-dropdown-trigger"><span data-i18n="nav.specialties">Spécialités</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></button>
           <div class="nav-dropdown-menu">
             <a href="specialites/orl.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3"/></svg>ORL</a>
             <a href="specialites/gynecologie.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Gynécologie</a>
@@ -43,13 +43,15 @@
             <a href="specialites/hopital-ems.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Hôpital &amp; EMS</a>
           </div>
         </div>
-        <a href="entreprise.html" class="nav-link">L'entreprise</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="entreprise.html" class="nav-link" data-i18n="nav.company">L'entreprise</a>
+        <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-spacer"></div>
       <div class="header-actions">
-        <div class="lang-switcher"><a href="#" class="active">FR</a><span class="lang-sep">|</span><a href="#">DE</a><span class="lang-sep">|</span><a href="#">IT</a><span class="lang-sep">|</span><a href="#">EN</a></div>
-        <a href="boutique.html" class="btn btn-primary btn-sm">Commander</a>
+        <div class="lang-switcher"><a href="#" class="lang-btn active" data-lang="fr">FR</a><span class="lang-sep">|</span><a href="#" class="lang-btn" data-lang="de">DE</a><span class="lang-sep">|</span><a href="#" class="lang-btn" data-lang="it">IT</a><span class="lang-sep">|</span><a href="#" class="lang-btn" data-lang="en">EN</a></div>
+        <a href="compte/login.html" class="btn-compte"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span data-i18n="btn.account">Mon compte</span></a>
+        <a href="boutique.html" class="cart-btn" aria-label="Panier"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-badge hidden">0</span></a>
+        <a href="boutique.html" class="btn btn-primary btn-sm" data-i18n="btn.order">Commander</a>
         <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -140,13 +142,13 @@
         <h3>5.3 Transfert de risques</h3>
         <p>Le transfert de propriété et des risques intervient à la livraison des produits au Client (ou à son transporteur mandaté). En cas de dommage constaté à la réception, le Client doit formuler des réserves précises auprès du transporteur et nous en informer sous 48h.</p>
         <h3>5.4 Livraison non conforme</h3>
-        <p>En cas de produit manquant, endommagé ou non conforme à la commande, le Client doit signaler le problème à <a href="mailto:commandes@kbmedshop.ch" style="color:var(--primary)">commandes@kbmedshop.ch</a> dans les 5 jours ouvrés suivant la livraison, avec photos à l'appui.</p>
+        <p>En cas de produit manquant, endommagé ou non conforme à la commande, le Client doit signaler le problème à <a href="mailto:commandes@kbmed.ch" style="color:var(--primary)">commandes@kbmed.ch</a> dans les 5 jours ouvrés suivant la livraison, avec photos à l'appui.</p>
       </div>
 
       <div class="legal-section" id="retour">
         <h2>6. Retours, échanges et remboursements</h2>
         <h3>6.1 Produits retournables</h3>
-        <p>Tout retour doit être préalablement autorisé par KB Medizintechnik (demande à adresser à <a href="mailto:commandes@kbmedshop.ch" style="color:var(--primary)">commandes@kbmedshop.ch</a>). Les produits retournés doivent être dans leur emballage d'origine, non ouverts et non utilisés.</p>
+        <p>Tout retour doit être préalablement autorisé par KB Medizintechnik (demande à adresser à <a href="mailto:commandes@kbmed.ch" style="color:var(--primary)">commandes@kbmed.ch</a>). Les produits retournés doivent être dans leur emballage d'origine, non ouverts et non utilisés.</p>
         <h3>6.2 Produits non retournables</h3>
         <ul>
           <li>Consommables médicaux ouverts ou utilisés</li>
@@ -163,7 +165,7 @@
         <h2>7. Garanties</h2>
         <p>Tous les produits vendus par KB Medizintechnik bénéficient de la garantie légale contre les défauts de conformité conformément au Code des obligations suisse.</p>
         <p>La garantie constructeur varie selon les produits (généralement 1 à 3 ans). Elle est indiquée sur chaque fiche produit. La garantie couvre les défauts de fabrication dans des conditions normales d'utilisation. Elle ne couvre pas l'usure normale, les dommages liés à une mauvaise utilisation ou à un entretien inadapté.</p>
-        <p>Pour toute demande SAV sous garantie, contactez <a href="mailto:sav@kbmedshop.ch" style="color:var(--primary)">sav@kbmedshop.ch</a>.</p>
+        <p>Pour toute demande SAV sous garantie, contactez <a href="mailto:sav@kbmed.ch" style="color:var(--primary)">sav@kbmed.ch</a>.</p>
       </div>
 
       <div class="legal-section" id="responsabilite-cgv">
@@ -191,7 +193,7 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.08);padding-top:28px">
-      <div class="footer-swiss"><div class="footer-swiss-flag"></div>Entreprise suisse — kbmedshop.ch</div>
+      <div class="footer-swiss"><div class="footer-swiss-flag"></div><span data-i18n="footer.swiss">Entreprise suisse</span> — kbmedshop.ch</div>
       <div style="display:flex;gap:16px;font-size:.78rem">
         <a href="mentions-legales.html" style="color:rgba(255,255,255,.5)">Mentions légales</a>
         <a href="confidentialite.html" style="color:rgba(255,255,255,.5)">Confidentialité</a>
@@ -201,6 +203,6 @@
     </div>
   </div>
 </footer>
-<script src="js/main.js"></script>
+<script src="js/i18n.js"></script><script src="js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -20,11 +20,11 @@
         <img src="../logo-flag_vectorise-6.svg" alt="KB Medizintechnik">
       </a>
       <nav class="header-nav">
-        <a href="../index.html" class="nav-link">Accueil</a>
-        <a href="../boutique.html" class="nav-link">Catalogue</a>
+        <a href="../index.html" class="nav-link" data-i18n="nav.home">Accueil</a>
+        <a href="../boutique.html" class="nav-link" data-i18n="nav.catalog">Catalogue</a>
         <div class="nav-dropdown">
           <button class="nav-link nav-dropdown-trigger active">
-            Spécialités
+            <span data-i18n="nav.specialties">Spécialités</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown-menu">
@@ -46,20 +46,20 @@
             </a>
           </div>
         </div>
-        <a href="../entreprise.html" class="nav-link">L'entreprise</a>
-        <a href="../contact.html" class="nav-link">Contact</a>
+        <a href="../entreprise.html" class="nav-link" data-i18n="nav.company">L'entreprise</a>
+        <a href="../contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-spacer"></div>
       <div class="header-actions">
         <div class="lang-switcher">
-          <a href="#" class="active">FR</a><span class="lang-sep">|</span>
-          <a href="#">DE</a><span class="lang-sep">|</span>
-          <a href="#">IT</a><span class="lang-sep">|</span>
-          <a href="#">EN</a>
+          <a href="#" class="lang-btn active" data-lang="fr">FR</a><span class="lang-sep">|</span>
+          <a href="#" class="lang-btn" data-lang="de">DE</a><span class="lang-sep">|</span>
+          <a href="#" class="lang-btn" data-lang="it">IT</a><span class="lang-sep">|</span>
+          <a href="#" class="lang-btn" data-lang="en">EN</a>
         </div>
-        <a href="../devis.html" class="btn btn-ghost btn-sm">Devis</a>
-        <a href="../compte/login.html" class="btn-compte"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Mon compte</a>
-        <a href="../boutique.html" class="btn btn-primary btn-sm">Commander</a>
+        <a href="../devis.html" class="btn btn-ghost btn-sm"><span data-i18n="btn.quote">Devis</span></a>
+        <a href="../compte/login.html" class="btn-compte"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span data-i18n="btn.account">Mon compte</span></a>
+        <a href="../boutique.html" class="btn btn-primary btn-sm" data-i18n="btn.order">Commander</a>
         <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -340,13 +340,13 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="../logo-flag_vectorise-6.svg" alt="KB Medizintechnik" style="height:28px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:12px">
-        <p>Spécialiste suisse en équipements médicaux ORL depuis 2008. Bâle, Suisse.</p>
+        <p>Spécialiste suisse en équipements médicaux ORL depuis 2008. Biel-Benken, Suisse.</p>
       </div>
       <div class="footer-col">
         <h5>Spécialités</h5>
         <ul class="footer-links">
           <li><a href="orl.html">ORL</a></li>
-          <li><a href="gynecologie.html">Gynécologie</a></li>
+          <li><a href="gynecologie.html" data-i18n-wrap="nav.gyneco">Gynécologie</a></li>
           <li><a href="sterilisation.html">Stérilisation</a></li>
           <li><a href="hopital-ems.html">Hôpital &amp; EMS</a></li>
         </ul>
@@ -355,26 +355,26 @@
         <h5>Commandes</h5>
         <ul class="footer-links">
           <li><a href="../boutique.html">Catalogue</a></li>
-          <li><a href="../devis.html">Demande de devis</a></li>
+          <li><a href="../devis.html" data-i18n="footer.quote-req">Demande de devis</a></li>
           <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Entreprise</h5>
+        <h5 data-i18n="footer.h.company">Entreprise</h5>
         <ul class="footer-links">
-          <li><a href="../entreprise.html">À propos</a></li>
+          <li><a href="../entreprise.html" data-i18n="footer.about">À propos</a></li>
           <li><a href="../equipe/login.html">Espace équipe</a></li>
-          <li><a href="#">Mentions légales</a></li>
+          <li><a href="../mentions-legales.html" data-i18n="footer.mentions">Mentions légales</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-swiss"><div class="footer-swiss-flag"></div>Entreprise suisse — kbmedshop.ch</div>
+      <div class="footer-swiss"><div class="footer-swiss-flag"></div><span data-i18n="footer.swiss">Entreprise suisse</span> — kbmedshop.ch</div>
       <div style="color:rgba(255,255,255,0.35)">© 2026 KB Medizintechnik</div>
     </div>
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
+<script src="../js/i18n.js"></script><script src="../js/main.js"></script>
 </body>
 </html>

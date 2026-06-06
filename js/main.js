@@ -230,14 +230,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
-          <span>Accueil</span>
+          <span data-i18n="nav.home">Accueil</span>
         </a>
         <a href="${base}boutique.html" class="mobile-nav-item ${isActive('boutique') || isActive('produit') || isActive('specialite')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="2" y="3" width="20" height="14" rx="2"/>
             <path d="M8 21h8M12 17v4"/>
           </svg>
-          <span>Catalogue</span>
+          <span data-i18n="nav.catalog">Catalogue</span>
         </a>
         <a href="${base}boutique.html" class="mobile-nav-item mobile-nav-cart ${isActive('panier')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -254,14 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <line x1="16" y1="13" x2="8" y2="13"/>
             <line x1="16" y1="17" x2="8" y2="17"/>
           </svg>
-          <span>Devis</span>
+          <span data-i18n="btn.quote">Devis</span>
         </a>
         <a href="${base}compte/login.html" class="mobile-nav-item ${isActive('compte')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
           </svg>
-          <span>Mon compte</span>
+          <span data-i18n="btn.account">Mon compte</span>
         </a>
       </div>
     `;
@@ -269,5 +269,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sync badge après injection
     Cart.updateUI();
   }
+
+  /* ---- Language switcher ---- */
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      if (window.setLanguage) window.setLanguage(btn.dataset.lang);
+    });
+  });
+
+  /* ---- Init langue au chargement ---- */
+  if (window.initLanguage) window.initLanguage();
 
 });
