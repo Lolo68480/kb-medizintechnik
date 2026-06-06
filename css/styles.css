@@ -242,16 +242,26 @@ p { color: var(--text-muted); line-height: 1.7; }
   display: flex; align-items: center; gap: 4px;
 }
 .nav-dropdown-trigger svg { width: 12px; height: 12px; transition: transform var(--transition); }
-.nav-dropdown:hover .nav-dropdown-trigger svg,
 .nav-dropdown.open .nav-dropdown-trigger svg { transform: rotate(180deg); }
+
+/*
+  Le menu se positionne exactement sous le trigger (top: 100%, pas de gap).
+  Le JS gère l'ouverture/fermeture avec un délai de 150ms sur mouseleave,
+  ce qui laisse le temps à la souris de descendre sans fermer le menu.
+*/
 .nav-dropdown-menu {
-  display: none; position: absolute; top: calc(100% + 8px); left: 0;
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
-  min-width: 200px; padding: 6px;
+  display: none;
+  position: absolute; top: 100%; left: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-width: 210px;
+  padding: 6px;
   z-index: 300;
+  /* Espace visuel géré par margin, pas par top, pour ne pas briser le hover */
+  margin-top: 4px;
 }
-.nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown.open .nav-dropdown-menu { display: block; }
 .nav-dropdown-menu a {
   display: flex; align-items: center; gap: 10px;

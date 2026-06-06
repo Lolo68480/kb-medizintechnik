@@ -26,6 +26,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Dropdown navigation — hover robuste avec délai ---- */
+  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    let closeTimer = null;
+
+    const open = () => {
+      clearTimeout(closeTimer);
+      // Ferme les autres dropdowns
+      document.querySelectorAll('.nav-dropdown').forEach(d => {
+        if (d !== dropdown) d.classList.remove('open');
+      });
+      dropdown.classList.add('open');
+    };
+
+    const close = () => {
+      // Délai 150ms : laisse le temps à la souris de descendre vers le menu
+      closeTimer = setTimeout(() => dropdown.classList.remove('open'), 150);
+    };
+
+    // Hover sur le trigger ou le menu
+    dropdown.addEventListener('mouseenter', open);
+    dropdown.addEventListener('mouseleave', close);
+
+    // Clic sur le trigger (toggle) — utile sur tablette
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+    }
+
+    // Clic en dehors ferme le menu
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  });
+
   /* ---- Quantity selectors ---- */
   document.querySelectorAll('.qty-selector').forEach(selector => {
     const input = selector.querySelector('.qty-input');
