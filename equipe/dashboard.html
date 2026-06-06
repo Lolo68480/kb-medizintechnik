@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Espace équipe KB Medizintechnik</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="team-layout">
+
+  <!-- ============================================================
+       SIDEBAR
+       ============================================================ -->
+  <aside class="team-sidebar">
+    <div class="sidebar-header">
+      <img src="../logo-flag_vectorise-6.svg" alt="KB Medizintechnik" style="height:26px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:10px">
+      <div class="sidebar-logo-sub">Espace équipe interne</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">Principal</div>
+        <a href="dashboard.html" class="sidebar-link active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="commandes.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Commandes
+          <span class="sidebar-badge">12</span>
+        </a>
+        <a href="devis-equipe.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Devis
+          <span class="sidebar-badge">5</span>
+        </a>
+        <a href="rdv.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          RDV Commerciaux
+        </a>
+      </div>
+
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">Gestion</div>
+        <a href="#" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Catalogue produits
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Clients
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Statistiques
+        </a>
+      </div>
+
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">Compte</div>
+        <a href="#" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Mon profil
+        </a>
+        <a href="login.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Déconnexion
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">ML</div>
+        <div>
+          <div class="sidebar-user-name">Marie Lambert</div>
+          <div class="sidebar-user-role">Commercial terrain</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN
+       ============================================================ -->
+  <main class="team-main">
+
+    <!-- Topbar -->
+    <div class="team-topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--text-muted)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="topbar-title">Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <div style="font-size:.8rem;color:var(--text-muted)">Vendredi 6 juin 2026</div>
+        <div class="topbar-actions">
+          <button class="notif-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="notif-dot"></span>
+          </button>
+          <a href="../boutique.html" class="btn btn-primary btn-sm" target="_blank">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Site public
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="team-content">
+
+      <div class="team-page-header">
+        <h1>Bonjour, Marie 👋</h1>
+        <p>Voici un résumé de l'activité du jour — Vendredi 6 juin 2026.</p>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <div class="kpi-label">Commandes du jour</div>
+            <div class="kpi-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value">12</div>
+          <div class="kpi-change">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+            +4 vs hier
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <div class="kpi-label">CA du mois</div>
+            <div class="kpi-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value">48 240</div>
+          <div class="kpi-change">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+            +12% vs juin 2025
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <div class="kpi-label">Devis en attente</div>
+            <div class="kpi-icon" style="background:#FFFBEB">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value" style="color:var(--warning)">5</div>
+          <div class="kpi-change" style="color:var(--warning)">2 urgents — répondre aujourd'hui</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <div class="kpi-label">RDV cette semaine</div>
+            <div class="kpi-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value">3</div>
+          <div class="kpi-change">Prochain : Lundi 9 juin · 10h00</div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="dashboard-grid">
+
+        <!-- Commandes récentes -->
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>Commandes récentes</h3>
+            <a href="commandes.html" class="btn btn-ghost btn-xs">Voir tout →</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>N°</th>
+                <th>Client</th>
+                <th>Montant</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-bold">#2026-1842</td>
+                <td>
+                  <div class="td-bold">Cabinet ORL Favre</div>
+                  <div class="td-muted" style="font-size:.75rem">Genève</div>
+                </td>
+                <td class="td-bold">1 247 CHF</td>
+                <td><span class="status-badge status-shipped">Expédiée</span></td>
+              </tr>
+              <tr>
+                <td class="td-bold">#2026-1841</td>
+                <td>
+                  <div class="td-bold">Clinique ORL Bâle</div>
+                  <div class="td-muted" style="font-size:.75rem">Bâle</div>
+                </td>
+                <td class="td-bold">3 890 CHF</td>
+                <td><span class="status-badge status-confirmed">Confirmée</span></td>
+              </tr>
+              <tr>
+                <td class="td-bold">#2026-1840</td>
+                <td>
+                  <div class="td-bold">Dr. Meier Audiologie</div>
+                  <div class="td-muted" style="font-size:.75rem">Zurich</div>
+                </td>
+                <td class="td-bold">289 CHF</td>
+                <td><span class="status-badge status-delivered">Livrée</span></td>
+              </tr>
+              <tr>
+                <td class="td-bold">#2026-1839</td>
+                <td>
+                  <div class="td-bold">CHUV — Service ORL</div>
+                  <div class="td-muted" style="font-size:.75rem">Lausanne</div>
+                </td>
+                <td class="td-bold">12 450 CHF</td>
+                <td><span class="status-badge status-pending">En attente</span></td>
+              </tr>
+              <tr>
+                <td class="td-bold">#2026-1838</td>
+                <td>
+                  <div class="td-bold">Cabinet Brunner</div>
+                  <div class="td-muted" style="font-size:.75rem">Berne</div>
+                </td>
+                <td class="td-bold">156 CHF</td>
+                <td><span class="status-badge status-delivered">Livrée</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Devis récents -->
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>Demandes de devis</h3>
+            <a href="devis-equipe.html" class="btn btn-ghost btn-xs">Voir tout →</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Produits</th>
+                <th>Date</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="td-bold">Dr. Schmitt, Lucerne</div>
+                  <div class="td-muted" style="font-size:.75rem">dr.schmitt@cabinet.ch</div>
+                </td>
+                <td class="td-muted">Audiomètre AD629, Tympanomètre</td>
+                <td class="td-muted">Aujourd'hui 09:12</td>
+                <td><span class="status-badge status-new">Nouveau</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-bold">Hôpital Cantonal GE</div>
+                  <div class="td-muted" style="font-size:.75rem">achats@hcge.ch</div>
+                </td>
+                <td class="td-muted">Nasofibroscope ×3, Chariot</td>
+                <td class="td-muted">Hier 16:44</td>
+                <td><span class="status-badge status-new">Nouveau</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-bold">Clinique Riviera</div>
+                  <div class="td-muted" style="font-size:.75rem">approvisionnement@riviera.ch</div>
+                </td>
+                <td class="td-muted">Laryngoscope vidéo Olympus</td>
+                <td class="td-muted">03/06/2026</td>
+                <td><span class="status-badge status-processed">Traité</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="td-bold">Dr. Weber, St-Gall</div>
+                  <div class="td-muted" style="font-size:.75rem">dr.weber@praxis.ch</div>
+                </td>
+                <td class="td-muted">Otoscope K180 ×5, Poignées</td>
+                <td class="td-muted">02/06/2026</td>
+                <td><span class="status-badge status-converted">Converti</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- RDV à venir -->
+      <div class="table-card" style="margin-top:20px">
+        <div class="table-card-header">
+          <h3>Prochains RDV commerciaux</h3>
+          <a href="rdv.html" class="btn btn-ghost btn-xs">Calendrier complet →</a>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date &amp; Heure</th>
+              <th>Cabinet / Clinique</th>
+              <th>Contact</th>
+              <th>Objectif</th>
+              <th>Dernière commande</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="td-bold">Lun 9 juin · 10h00</div>
+                <div class="td-muted" style="font-size:.75rem">Genève, cabinet</div>
+              </td>
+              <td>
+                <div class="td-bold">Cabinet ORL Favre</div>
+                <div class="td-muted" style="font-size:.75rem">13, Rue du Rhône, Genève</div>
+              </td>
+              <td>
+                <div class="td-bold">Dr. Renaud Favre</div>
+                <div class="td-muted" style="font-size:.75rem">+41 22 XXX XX XX</div>
+              </td>
+              <td class="td-muted" style="font-size:.8rem">Démo audiomètre AD629 + présentation nouveautés</td>
+              <td><span class="badge badge-green">1 247 CHF — 6 juin</span></td>
+              <td style="white-space:nowrap">
+                <button class="btn btn-xs btn-ghost" style="margin-right:4px">Modifier</button>
+                <button class="btn btn-xs btn-ghost">Fiche</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-bold">Mar 10 juin · 14h30</div>
+                <div class="td-muted" style="font-size:.75rem">Bâle, clinique</div>
+              </td>
+              <td>
+                <div class="td-bold">Clinique ORL Bâle</div>
+                <div class="td-muted" style="font-size:.75rem">Petersgraben 4, Bâle</div>
+              </td>
+              <td>
+                <div class="td-bold">Mme. Heidi Braun</div>
+                <div class="td-muted" style="font-size:.75rem">Responsable achats</div>
+              </td>
+              <td class="td-muted" style="font-size:.8rem">Renouvellement contrat consommables annuel</td>
+              <td><span class="badge badge-blue">3 890 CHF — 6 juin</span></td>
+              <td style="white-space:nowrap">
+                <button class="btn btn-xs btn-ghost" style="margin-right:4px">Modifier</button>
+                <button class="btn btn-xs btn-ghost">Fiche</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="td-bold">Jeu 12 juin · 09h00</div>
+                <div class="td-muted" style="font-size:.75rem">Lausanne, CHUV</div>
+              </td>
+              <td>
+                <div class="td-bold">CHUV — Service ORL</div>
+                <div class="td-muted" style="font-size:.75rem">Rue du Bugnon, Lausanne</div>
+              </td>
+              <td>
+                <div class="td-bold">Dr. Antonin Morel</div>
+                <div class="td-muted" style="font-size:.75rem">Chef de service ORL</div>
+              </td>
+              <td class="td-muted" style="font-size:.8rem">Présentation devis nasofibroscopes + vidéolaryngoscope</td>
+              <td><span class="badge badge-orange">12 450 CHF — en attente</span></td>
+              <td style="white-space:nowrap">
+                <button class="btn btn-xs btn-ghost" style="margin-right:4px">Modifier</button>
+                <button class="btn btn-xs btn-ghost">Fiche</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer dashboard -->
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--text-muted)">
+        <span>KB Medizintechnik — Espace équipe v1.0</span>
+        <span>Données mises à jour : aujourd'hui à 08:45</span>
+        <a href="../index.html" style="color:var(--primary)">Voir le site public →</a>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

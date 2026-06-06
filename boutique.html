@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue — KB Medizintechnik | kbmedshop.ch</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="logo-flag_vectorise-6.svg" alt="KB Medizintechnik">
+      </a>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="boutique.html" class="nav-link active">Catalogue</a>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-trigger">Spécialités <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="nav-dropdown-menu">
+            <a href="specialites/orl.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3"/></svg>ORL</a>
+            <a href="specialites/gynecologie.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Gynécologie</a>
+            <a href="specialites/sterilisation.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Stérilisation</a>
+            <a href="specialites/hopital-ems.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Hôpital &amp; EMS</a>
+          </div>
+        </div>
+        <a href="entreprise.html" class="nav-link">L'entreprise</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-spacer"></div>
+      <div class="header-actions">
+        <div class="lang-switcher">
+          <a href="#" class="active">FR</a><span class="lang-sep">|</span>
+          <a href="#">DE</a><span class="lang-sep">|</span><a href="#">IT</a><span class="lang-sep">|</span><a href="#">EN</a>
+        </div>
+        <a href="devis.html" class="btn btn-ghost btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Devis
+        </a>
+        <a href="boutique.html" class="btn btn-icon btn-ghost cart-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count">0</span>
+        </a>
+        <a href="boutique.html" class="btn btn-primary btn-sm">Commander</a>
+        <a href="equipe/login.html" class="btn-equipe">Espace équipe</a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Catalogue</span>
+    </div>
+    <h1>Catalogue médical</h1>
+    <p>862 références disponibles en stock — Livraison 24–48h en Suisse</p>
+  </div>
+</div>
+
+<!-- CATALOG LAYOUT -->
+<div class="container">
+  <div class="catalog-layout">
+
+    <!-- FILTERS -->
+    <aside class="filters-panel">
+      <div class="filters-panel-header">
+        <h3>Filtres</h3>
+        <button class="btn btn-xs btn-ghost btn-reset-filters">Réinitialiser</button>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-label">Catégorie</div>
+        <label class="filter-option"><input type="checkbox" checked><label>ORL</label><span class="f-count">243</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Audiologie</label><span class="f-count">87</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Endoscopie</label><span class="f-count">124</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Consommables</label><span class="f-count">312</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Hygiène &amp; Protection</label><span class="f-count">96</span></label>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-label">Marque</div>
+        <label class="filter-option"><input type="checkbox"><label>HEINE</label><span class="f-count">64</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Interacoustics</label><span class="f-count">31</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Karl Storz</label><span class="f-count">48</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Welch Allyn</label><span class="f-count">27</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Olympus</label><span class="f-count">52</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Atmos</label><span class="f-count">19</span></label>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-label">Prix (CHF)</div>
+        <div class="price-range">
+          <div class="price-inputs">
+            <input type="number" placeholder="0" value="0" class="form-input">
+            <span>–</span>
+            <input type="number" placeholder="5000" value="5000" class="form-input">
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-label">Disponibilité</div>
+        <label class="filter-option"><input type="checkbox" checked><label>En stock</label><span class="f-count">741</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Commande rapide</label><span class="f-count">112</span></label>
+        <label class="filter-option"><input type="checkbox"><label>Sur devis</label><span class="f-count">9</span></label>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-label">Type de commande</div>
+        <label class="filter-option"><input type="checkbox"><label>Achat direct</label></label>
+        <label class="filter-option"><input type="checkbox"><label>Sur devis</label></label>
+      </div>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <div class="catalog-content">
+      <div class="catalog-header">
+        <div class="catalog-count">243 produits trouvés en <strong>ORL</strong></div>
+        <div class="catalog-sort">
+          <label for="sort">Trier par</label>
+          <select id="sort">
+            <option>Pertinence</option>
+            <option>Prix croissant</option>
+            <option>Prix décroissant</option>
+            <option>Nouveautés</option>
+            <option>Meilleures ventes</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="catalog-grid">
+
+        <!-- Produit 1 — Achat direct -->
+        <div class="product-card" data-product="Otoscope LED Pro">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-green">En stock</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            <div class="product-img-fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">HEINE</div>
+            <div class="product-name">Otoscope LED K180 Pro</div>
+            <div class="product-ref">Réf. ORL-OS-2400-K180</div>
+            <div class="product-stock">
+              <span class="stock-dot"></span>
+              <span class="stock-text in">En stock (14 unités)</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price">289 CHF</span>
+              <span class="product-price-unit">HT / unité</span>
+            </div>
+            <div class="product-actions-row">
+              <a href="produit.html" class="btn btn-primary" data-action="add-cart">+ Panier</a>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 2 — Sur devis -->
+        <div class="product-card" data-product="Audiomètre Diagnostic">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-orange">Sur devis</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Interacoustics</div>
+            <div class="product-name">Audiomètre Diagnostic AD629</div>
+            <div class="product-ref">Réf. AUD-AM-629</div>
+            <div class="product-stock">
+              <span class="stock-dot low"></span>
+              <span class="stock-text">2 en stock</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price" style="font-size:.9rem;color:var(--text-muted)">Sur devis</span>
+            </div>
+            <div class="product-actions-row">
+              <a href="devis.html" class="btn btn-outline" data-action="add-devis">+ Devis</a>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 3 -->
+        <div class="product-card" data-product="Spéculums auriculaires">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-green">En stock</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Otopront</div>
+            <div class="product-name">Spéculums auriculaires jetables ×100</div>
+            <div class="product-ref">Réf. CONS-SP-4MM-100</div>
+            <div class="product-stock">
+              <span class="stock-dot"></span>
+              <span class="stock-text in">En stock</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price">14.90 CHF</span>
+              <span class="product-price-unit">HT / boîte</span>
+            </div>
+            <div class="product-actions-row">
+              <button class="btn btn-primary" data-action="add-cart">+ Panier</button>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 4 -->
+        <div class="product-card" data-product="Nasofibroscope flexible">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-orange">Sur devis</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Karl Storz</div>
+            <div class="product-name">Nasofibroscope flexible 3.5mm</div>
+            <div class="product-ref">Réf. ENDO-NF-KS350</div>
+            <div class="product-stock">
+              <span class="stock-dot low"></span>
+              <span class="stock-text">Délai 5-7 jours</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price" style="font-size:.9rem;color:var(--text-muted)">Sur devis</span>
+            </div>
+            <div class="product-actions-row">
+              <a href="devis.html" class="btn btn-outline" data-action="add-devis">+ Devis</a>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 5 -->
+        <div class="product-card" data-product="Tympanomètre AT235">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-blue">Nouveauté</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Interacoustics</div>
+            <div class="product-name">Tympanomètre AT235h</div>
+            <div class="product-ref">Réf. AUD-TY-AT235</div>
+            <div class="product-stock">
+              <span class="stock-dot"></span>
+              <span class="stock-text in">En stock (3 unités)</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price" style="font-size:.9rem;color:var(--text-muted)">Sur devis</span>
+            </div>
+            <div class="product-actions-row">
+              <a href="devis.html" class="btn btn-outline" data-action="add-devis">+ Devis</a>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 6 -->
+        <div class="product-card" data-product="Otoscope mini LED">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-green">En stock</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 9a3 3 0 1 1 6 0c0 3-3 4-3 7M12 20h.01"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Welch Allyn</div>
+            <div class="product-name">Otoscope Mini 3000 LED</div>
+            <div class="product-ref">Réf. ORL-OS-WA3000</div>
+            <div class="product-stock">
+              <span class="stock-dot"></span>
+              <span class="stock-text in">En stock</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price">189 CHF</span>
+              <span class="product-price-unit">HT</span>
+            </div>
+            <div class="product-actions-row">
+              <button class="btn btn-primary" data-action="add-cart">+ Panier</button>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 7 -->
+        <div class="product-card" data-product="Gants latex poudré">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-green">En stock</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Medi-Tech</div>
+            <div class="product-name">Gants d'examen nitrile non poudrés M ×100</div>
+            <div class="product-ref">Réf. HYG-GN-NIT-M100</div>
+            <div class="product-stock">
+              <span class="stock-dot"></span>
+              <span class="stock-text in">En stock</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price">8.50 CHF</span>
+              <span class="product-price-unit">HT / boîte</span>
+            </div>
+            <div class="product-actions-row">
+              <button class="btn btn-primary" data-action="add-cart">+ Panier</button>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 8 -->
+        <div class="product-card" data-product="Laryngoscope vidéo">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-orange">Sur devis</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Olympus</div>
+            <div class="product-name">Laryngoscope vidéo flexible ENF-V3</div>
+            <div class="product-ref">Réf. ENDO-LV-OLY-V3</div>
+            <div class="product-stock">
+              <span class="stock-dot low"></span>
+              <span class="stock-text">Commande spéciale</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price" style="font-size:.9rem;color:var(--text-muted)">Sur devis</span>
+            </div>
+            <div class="product-actions-row">
+              <a href="devis.html" class="btn btn-outline" data-action="add-devis">+ Devis</a>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produit 9 -->
+        <div class="product-card" data-product="Désinfectant instruments">
+          <div class="product-img">
+            <div class="product-img-badge"><span class="badge badge-green">En stock</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-brand">Aniosyme</div>
+            <div class="product-name">Désinfectant instruments 5L concentré</div>
+            <div class="product-ref">Réf. HYG-DI-ANY-5L</div>
+            <div class="product-stock">
+              <span class="stock-dot"></span>
+              <span class="stock-text in">En stock</span>
+            </div>
+            <div class="product-price-row">
+              <span class="product-price">42.00 CHF</span>
+              <span class="product-price-unit">HT / flacon</span>
+            </div>
+            <div class="product-actions-row">
+              <button class="btn btn-primary" data-action="add-cart">+ Panier</button>
+              <a href="produit.html" class="btn btn-ghost">Voir</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <button class="page-btn" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <span style="padding:0 8px;font-size:.8rem;color:var(--text-muted)">...</span>
+        <button class="page-btn">28</button>
+        <button class="page-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" style="margin-top:64px">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-flag_vectorise-6.svg" alt="KB Medizintechnik" style="height:28px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:12px">
+        <p>Spécialiste suisse en équipements médicaux ORL depuis 2008.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Catalogue</h5>
+        <ul class="footer-links">
+          <li><a href="#">ORL</a></li><li><a href="#">Audiologie</a></li>
+          <li><a href="#">Endoscopie</a></li><li><a href="#">Consommables</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Commande</h5>
+        <ul class="footer-links">
+          <li><a href="devis.html">Demande de devis</a></li>
+          <li><a href="#">Mon panier</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:info@kbmedshop.ch">info@kbmedshop.ch</a></li>
+          <li><a href="tel:+41610000000">+41 61 XXX XX XX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-swiss"><div class="footer-swiss-flag"></div>Entreprise suisse — Prix en CHF HT</div>
+      <div style="color:rgba(255,255,255,0.35)">© 2026 KB Medizintechnik</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
