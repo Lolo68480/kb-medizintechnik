@@ -195,7 +195,7 @@ p { color: var(--text-muted); line-height: 1.7; }
    HEADER / NAVIGATION
    ============================================================ */
 .header {
-  position: sticky; top: 0; z-index: 200;
+  position: sticky; top: 0; z-index: 500;
   background: rgba(255,255,255,0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -1339,22 +1339,22 @@ tbody tr:hover { background: var(--bg-light); }
   /* Menu nav mobile : panneau full-width qui s'affiche */
   .header-nav {
     display: none;
-    position: fixed; top: 68px; left: 0; right: 0;
+    position: fixed; top: 60px; left: 0; right: 0;
     background: #fff;
     border-bottom: 1px solid var(--border);
     padding: 12px 16px 20px;
     flex-direction: column; align-items: stretch;
-    z-index: 400;
+    z-index: 495;
     box-shadow: var(--shadow-lg);
-    max-height: calc(100vh - 68px);
+    max-height: calc(100vh - 60px);
     overflow-y: auto;
   }
   .header-nav.open { display: flex; }
   /* Overlay backdrop quand menu ouvert */
   .nav-overlay {
     display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.3); z-index: 399;
-    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,0.4); z-index: 490;
+    /* Pas de backdrop-filter : évite de flouter le menu */
   }
   .nav-overlay.open { display: block; }
 
