@@ -1318,12 +1318,23 @@ tbody tr:hover { background: var(--bg-light); }
   /* Décalage pour la barre bottom nav */
   body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0)); }
 
+  /* === Anti-scroll horizontal global === */
+  html, body { overflow-x: hidden; max-width: 100%; }
+
   /* === Header mobile === */
-  /* Cacher éléments desktop dans le header */
+  .header-inner { gap: 8px; height: 60px; }
+
+  /* Logo réduit sur mobile */
+  .header-logo img { height: 26px; max-width: 120px; width: auto; object-fit: contain; }
+
+  /* Cacher tout ce qui n'est pas utile dans le header mobile */
   .lang-switcher { display: none; }
-  .btn-compte { display: none; } /* Remplacé par bottom nav */
-  /* Garder le cart btn mais réduire */
-  .cart-btn { width: 40px; height: 40px; }
+  .btn-compte { display: none; }
+  .header-actions .btn-ghost { display: none; }   /* Devis */
+  .header-actions .btn-primary { display: none; } /* Commander */
+
+  /* Cart btn conservé mais compact */
+  .cart-btn { width: 38px; height: 38px; }
 
   /* Menu nav mobile : panneau full-width qui s'affiche */
   .header-nav {
@@ -1476,9 +1487,9 @@ tbody tr:hover { background: var(--bg-light); }
   .hero-ctas .btn, .btn-lg { width: 100%; justify-content: center; }
 
   /* Header — encore plus compact */
-  .header-inner { gap: 12px; height: 60px; }
-  .header-logo img { height: 28px; }
-  .cart-btn { width: 38px; height: 38px; }
+  .header-inner { gap: 6px; height: 56px; }
+  .header-logo img { height: 22px; max-width: 100px; }
+  .cart-btn { width: 36px; height: 36px; }
 
   /* Barre bottom nav plus petite */
   .mobile-nav-items { height: 56px; }
